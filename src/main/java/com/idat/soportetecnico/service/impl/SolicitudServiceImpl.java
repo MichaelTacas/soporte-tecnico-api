@@ -1,5 +1,6 @@
 package com.idat.soportetecnico.service.impl;
 
+import com.idat.soportetecnico.exception.RecursoNoEncontradoException;
 import com.idat.soportetecnico.model.EstadoSolicitud;
 import com.idat.soportetecnico.model.Prioridad;
 import com.idat.soportetecnico.model.Solicitud;
@@ -40,7 +41,9 @@ public class SolicitudServiceImpl implements SolicitudService {
         Solicitud solicitud = solicitudes.get(id);
 
         if (solicitud == null) {
-            throw new RuntimeException("Solicitud no encontrada");
+            throw new RecursoNoEncontradoException(
+                    "Solicitud no encontrada"
+            );
         }
 
         return solicitud;
