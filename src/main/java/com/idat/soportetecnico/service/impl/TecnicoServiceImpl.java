@@ -1,5 +1,6 @@
 package com.idat.soportetecnico.service.impl;
 
+import com.idat.soportetecnico.exception.RecursoNoEncontradoException;
 import com.idat.soportetecnico.model.Tecnico;
 import com.idat.soportetecnico.service.TecnicoService;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class TecnicoServiceImpl implements TecnicoService {
         return tecnico;
     }
 
+
     @Override
     public List<Tecnico> listar() {
 
@@ -38,7 +40,7 @@ public class TecnicoServiceImpl implements TecnicoService {
         Tecnico tecnico = tecnicos.get(id);
 
         if (tecnico == null) {
-            throw new RuntimeException("Técnico no encontrado");
+            throw new RecursoNoEncontradoException("Técnico no encontrado");
         }
 
         return tecnico;
@@ -69,9 +71,6 @@ public class TecnicoServiceImpl implements TecnicoService {
     @Override
     public List<Tecnico> listarDisponibles() {
 
-        return tecnicos.values()
-                .stream()
-                .filter(Tecnico::isDisponible)
-                .toList();
+        return tecnicos.values().stream().filter(Tecnico::isDisponible).toList();
     }
 }

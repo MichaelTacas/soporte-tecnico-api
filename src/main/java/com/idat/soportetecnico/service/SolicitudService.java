@@ -4,6 +4,7 @@ import com.idat.soportetecnico.model.EstadoSolicitud;
 import com.idat.soportetecnico.model.Prioridad;
 import com.idat.soportetecnico.model.Solicitud;
 
+
 import java.util.List;
 
 public interface SolicitudService {
