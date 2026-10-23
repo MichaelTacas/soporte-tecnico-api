@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import com.idat.soportetecnico.model.EstadoSolicitud;
 
 public class SolicitudRequest {
 
@@ -25,6 +26,8 @@ public class SolicitudRequest {
 
     @Positive(message = "El ID del técnico debe ser mayor a cero")
     private Long tecnicoId;
+
+    private EstadoSolicitud estado;
 
     public SolicitudRequest() {
     }
@@ -80,4 +83,13 @@ public class SolicitudRequest {
     public void setTecnicoId(Long tecnicoId) {
         this.tecnicoId = tecnicoId;
     }
+
+    public EstadoSolicitud getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoSolicitud estado) {
+        this.estado = estado;
+    }
+
 }

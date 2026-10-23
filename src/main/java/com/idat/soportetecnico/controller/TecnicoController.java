@@ -5,6 +5,7 @@ import com.idat.soportetecnico.service.TecnicoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class TecnicoController {
     }
 
     @PostMapping
-    public ResponseEntity<Tecnico> registrar(@RequestBody Tecnico tecnico) {
+    public ResponseEntity<Tecnico> registrar(
+            @Valid @RequestBody Tecnico tecnico) {
 
         Tecnico nuevoTecnico = tecnicoService.registrar(tecnico);
 
@@ -45,7 +47,7 @@ public class TecnicoController {
     @PutMapping("/{id}")
     public ResponseEntity<Tecnico> actualizar(
             @PathVariable Long id,
-            @RequestBody Tecnico tecnico) {
+            @Valid @RequestBody Tecnico tecnico) {
 
         return ResponseEntity.ok(
                 tecnicoService.actualizar(id, tecnico)
