@@ -1,5 +1,6 @@
 package com.idat.soportetecnico.service.impl;
 
+import com.idat.soportetecnico.exception.RecursoNoEncontradoException;
 import com.idat.soportetecnico.model.Cliente;
 import com.idat.soportetecnico.service.ClienteService;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,9 @@ public class ClienteServiceImpl implements ClienteService {
         Cliente cliente = clientes.get(id);
 
         if (cliente == null) {
-            throw new RuntimeException("Cliente no encontrado");
+            throw new RecursoNoEncontradoException(
+                    "Cliente no encontrado"
+            );
         }
 
         return cliente;

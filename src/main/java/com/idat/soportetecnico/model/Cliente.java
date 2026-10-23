@@ -1,10 +1,23 @@
 package com.idat.soportetecnico.model;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class Cliente {
 
     private Long id;
+
+    @NotBlank(message = "El nombre es obligatorio")
+    @Size(min = 2, max = 100, message = "El nombre debe tener entre 2 y 100 caracteres")
     private String nombre;
+
+    @NotBlank(message = "El email es obligatorio")
+    @Email(message = "El email debe tener un formato válido")
     private String email;
+
+    @NotBlank(message = "La empresa es obligatoria")
+    @Size(max = 100, message = "La empresa no puede superar los 100 caracteres")
     private String empresa;
 
     public Cliente() {

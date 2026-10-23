@@ -5,6 +5,7 @@ import com.idat.soportetecnico.service.ClienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> registrar(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> registrar(
+            @Valid @RequestBody Cliente cliente) {
 
         Cliente nuevoCliente = clienteService.registrar(cliente);
 
@@ -43,7 +45,7 @@ public class ClienteController {
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> actualizar(
             @PathVariable Long id,
-            @RequestBody Cliente cliente) {
+            @Valid @RequestBody Cliente cliente) {
 
         return ResponseEntity.ok(
                 clienteService.actualizar(id, cliente)

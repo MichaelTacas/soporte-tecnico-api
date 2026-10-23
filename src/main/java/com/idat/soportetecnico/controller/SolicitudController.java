@@ -118,10 +118,11 @@ public class SolicitudController {
         solicitud.setDescripcion(request.getDescripcion());
         solicitud.setPrioridad(request.getPrioridad());
 
-        // Conservamos el estado que ya tenía
-        solicitud.setEstado(
-                solicitudExistente.getEstado()
-        );
+        if (request.getEstado() != null) {
+            solicitud.setEstado(request.getEstado());
+        } else {
+            solicitud.setEstado(solicitudExistente.getEstado());
+        }
 
         solicitud.setCliente(cliente);
         solicitud.setTecnico(tecnico);
