@@ -11,3 +11,6 @@ CAPTURAS - SISTEMA DE GESTION DE SOPORTE TECNICO
 09. EXTRA - Spring Boot iniciado en puerto 8080
 10. EXTRA - Swagger con endpoints
 11. EXTRA - Maven BUILD SUCCESS
+12. POST /api/solicitudes con datos inválidos -> 400 Bad Request
+13. GET /api/solicitudes/prioridad/ALTA -> 200 OK
+14. GET /api/tecnicos/disponibles -> 200 OK
